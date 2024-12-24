@@ -5,19 +5,12 @@ let connection = {
   user, database, host, password, port
 };
 
-if (node_env === 'dev') {
-  connection.ssl = {
-    require: true,
-    rejectUnauthorized: false // Temporarily disable SSL verification   
-  };
-}
-
 // create a new connection to the database
 let pgConnection = new Client(connection);
 
 // connect to the database
 pgConnection.connect()
-.then(() => { require("../model/index") })
-  .catch((err) => { });
+  .then(() => { require("../model/index") })
+  .catch((err) => { console.error("Connection error details:", err); });
 
 module.exports = { pgConnection };
