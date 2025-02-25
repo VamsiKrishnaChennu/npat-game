@@ -3,6 +3,7 @@ const createModel = async (pgConnection) => {
   id BIGSERIAL PRIMARY KEY,
   username TEXT UNIQUE NOT NULL,
   email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) UNIQUE NOT NULL,
   player_id TEXT UNIQUE NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   last_viewed TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -30,7 +31,7 @@ const createModel = async (pgConnection) => {
             if (err.code === "42P04" || err.code === "42P07") { } else console.log(err.message);
             return;
         }
-        console.log("players creation successful");
+        console.log("players table creation successful");
     });
 };
 
