@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+* {
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('/assets/bg.png') no-repeat center center/cover;
+}
+
+.login-card {
+  width: 450px;
+  padding: 24px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  background: url('/assets/login_bg.png') no-repeat center center/cover;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.title,
+mat-card-title {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #3f51b5;
+  letter-spacing: 1px;
+  font-family: 'Shadows Into Light', cursive !important;
+}
+
+.toggle-button-container {
+  text-align: right;
+}
+
+mat-card-actions button {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}

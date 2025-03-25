@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="login-container">
+    <mat-card class="login-card">
+      <div class="header-container">
+        <mat-card-title class="title">{{ isRegisterMode ? 'Register' : 'Login' }}</mat-card-title>
+        <mat-card-actions class="toggle-button-container">
+          <button mat-raised-button color="accent" (click)="toggleMode()">
+            {{ isRegisterMode ? 'Login' : 'Register' }}
+          </button>
+        </mat-card-actions>
+      </div>
+      <mat-card-content>
+        <form [formGroup]="currentForm" (ngSubmit)="onSubmit()" class="form-container">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required />
+            <mat-error *ngIf="currentForm.get('email')?.invalid && currentForm.get('email')?.touched">
+              Please enter a valid email.
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" required />
+            <mat-error *ngIf="currentForm.get('password')?.invalid && currentForm.get('password')?.touched">
+              Password is required.
+            </mat-error>
+          </mat-form-field>
+  
+          <mat-form-field *ngIf="isRegisterMode" appearance="fill" class="full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirmPassword" required />
+            <mat-error *ngIf="currentForm.get('confirmPassword')?.invalid && currentForm.get('confirmPassword')?.touched">
+              Passwords must match.
+            </mat-error>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="currentForm.invalid">
+            {{ isRegisterMode ? 'Register' : 'Login' }}
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
